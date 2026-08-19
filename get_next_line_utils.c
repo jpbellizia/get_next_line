@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 00:28:47 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/08/17 13:29:10 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/19 14:14:23 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,3 @@ char	*ft_strjoin(char *stash, char *buffer)
 	free(stash);
 	return (str);
 }
-

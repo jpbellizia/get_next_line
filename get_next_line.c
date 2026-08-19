@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpaulo-p <jpaulo-p@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jpaulo-p <jpaulo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/07 19:10:49 by jpaulo-p          #+#    #+#             */
-/*   Updated: 2026/08/18 12:32:02 by jpaulo-p         ###   ########.fr       */
+/*   Updated: 2026/08/19 17:46:02 by jpaulo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,25 @@ char	*ft_save_rest(char *stash)
 static char	*ft_read_stash(int fd, char *stash)
 {
 	int		bytes_read;
-	char	buffer[BUFFER_SIZE + 1];
+	char	*buffer;
 
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	bytes_read = 1;
 	while (!ft_strchr(stash, '\n') && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
+			free(buffer);
 			free(stash);
 			return (NULL);
 		}
 		buffer[bytes_read] = '\0';
 		stash = ft_strjoin(stash, buffer);
 	}
+	free(buffer);
 	return (stash);
 }
 
